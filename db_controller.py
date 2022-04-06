@@ -31,6 +31,5 @@ def get_row(table_name):
     sql = 'SELECT * FROM ' + table_name + ' WHERE id = (SELECT MAX (id) FROM ' + table_name + ');'
     cur.execute(sql)
     row = cur.fetchone()
-
     close_connection(con, cur)
     return row
