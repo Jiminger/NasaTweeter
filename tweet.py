@@ -18,7 +18,7 @@ api = tweepy.API(auth)
 
 def tweet_apod(title, date, img, img_copyright):
     media = api.media_upload(img)
-    tweet = "Astronomy Picture of the Day\n\nTitle: " + title + "\nDate: " + date
+    tweet = "Astronomy Picture of the Day\n\nTitle: \"" + title + "\"\nDate: " + date
     if img_copyright is not None:
         tweet += "\nCopyright: " + img_copyright
     api.update_status(status=tweet, media_ids=[media.media_id])
