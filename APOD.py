@@ -1,6 +1,5 @@
 import requests
 import shutil
-import db_controller
 import tweet
 import os
 
@@ -24,4 +23,3 @@ if req.status_code == 200:
         shutil.copyfileobj(requests.get(img_url, stream=True).raw, f)
 
     tweet.tweet_apod(title, date, filename, img_copyright)
-    db_controller.insert_into_db('apod', title, date, img_url, img_copyright)
